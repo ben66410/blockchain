@@ -67,9 +67,7 @@
             margin-top: 30px;
         }
 
-        .connect-button {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
-            color: #000000;
+        .interact-button {
             border: none;
             padding: 18px 32px;
             border-radius: 16px;
@@ -85,16 +83,15 @@
             gap: 12px;
         }
 
-        .connect-button:hover {
+        .interact-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
         }
 
-        .connect-button:active {
+        .interact-button:active {
             transform: translateY(0);
         }
 
-        .connect-button::before {
+        .interact-button::before {
             content: '';
             position: absolute;
             top: 0;
@@ -105,7 +102,7 @@
             transition: left 0.5s;
         }
 
-        .connect-button:hover::before {
+        .interact-button:hover::before {
             left: 100%;
         }
 
@@ -114,9 +111,17 @@
             color: white;
         }
 
+        .evm-button:hover {
+            box-shadow: 0 10px 30px rgba(98, 126, 234, 0.3);
+        }
+
         .solana-button {
             background: linear-gradient(135deg, #9945ff 0%, #14f195 100%);
             color: white;
+        }
+
+        .solana-button:hover {
+            box-shadow: 0 10px 30px rgba(153, 69, 255, 0.3);
         }
 
         .button-icon {
@@ -128,13 +133,6 @@
             justify-content: center;
             font-weight: bold;
             font-size: 14px;
-        }
-
-        .evm-icon {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .solana-icon {
             background: rgba(255, 255, 255, 0.2);
         }
 
@@ -166,7 +164,7 @@
                 font-size: 2rem;
             }
             
-            .connect-button {
+            .interact-button {
                 padding: 16px 24px;
                 font-size: 1rem;
             }
@@ -179,13 +177,13 @@
         <p class="subtitle">Choose your preferred blockchain network to connect your wallet</p>
         
         <div class="button-container">
-            <button class="interact-button connect-button evm-button" onclick="connectEVM()">
-                <div class="interact-button button-icon evm-icon">Ξ</div>
+            <button class="interact-button evm-button" onclick="connectEVM()">
+                <div class="button-icon">Ξ</div>
                 Connect with EVM
             </button>
             
-            <button class="interact-button window.startConnect() connect-button solana-button" onclick="connectSolana()">
-                <div class="interact-button window.startConnect() button-icon solana-icon">◎</div>
+            <button class="interact-button solana-button" onclick="connectSolana()">
+                <div class="button-icon">◎</div>
                 Connect with Solana
             </button>
         </div>
@@ -193,7 +191,7 @@
         <div id="status" class="status"></div>
     </div>
 
-    <!-- <script>
+    <script>
         function showStatus(message, type = 'info') {
             const statusEl = document.getElementById('status');
             statusEl.textContent = message;
@@ -205,21 +203,13 @@
         }
 
         function connectEVM() {
-            showStatus('Connecting to EVM wallet...', 'connecting');
-            
-            // Simulate connection process
-            setTimeout(() => {
-                showStatus('EVM wallet connected successfully!', 'success');
-            }, 1500);
+            console.log('EVM button clicked');
+            // Add your EVM connection logic here
         }
 
         function connectSolana() {
-            showStatus('Connecting to Solana wallet...', 'connecting');
-            
-            // Simulate connection process
-            setTimeout(() => {
-                showStatus('Solana wallet connected successfully!', 'success');
-            }, 1500);
+            console.log('Solana button clicked');
+            // Add your Solana connection logic here
         }
 
         // Add some interactive particle effects
@@ -259,6 +249,6 @@
             }
         `;
         document.head.appendChild(style);
-    </script> -->
+    </script>
 </body>
 </html>
